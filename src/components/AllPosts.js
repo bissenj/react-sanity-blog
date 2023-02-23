@@ -14,26 +14,7 @@ export default function AllPosts() {
     /*
         In React 18, this is going to fire twice in Dev due to Strict Mode.  
     */
-    useEffect(() => {        
-        // sanityClient
-        //     .fetch(
-        //         `
-        //         *[_type == "post"] {
-        //             title, 
-        //             slug,
-        //             mainImage {
-        //                 asset-> {
-        //                     _id,
-        //                     url
-        //                 }                        
-        //             }
-        //         }`                
-        //     )
-        //     .then((data) => {
-        //         setAllPosts(data);
-        //         console.log('Data: ', data);
-        //     })
-        //     .catch(console.error);       
+    useEffect(() => {           
     }, []);
 
     function getAllPosts() {
@@ -93,8 +74,8 @@ export default function AllPosts() {
                             </Link>   
                         ))
                     }                
-            </div>
-            </div>
+                </div>
+            </div>            
         </div>
     );
 }

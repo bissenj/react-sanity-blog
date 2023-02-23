@@ -15,6 +15,9 @@
 
 /* END TAILWIND */
 
+.visible-element {
+  transition: opacity 0.7s ease-in;  
+}
 
 .App {
   text-align: center;

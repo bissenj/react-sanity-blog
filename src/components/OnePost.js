@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import sanityClient from "../client.js";
 import BlockContent from "@sanity/block-content-to-react";
 import { PortableText } from '@portabletext/react'
 import imageUrlBuilder from "@sanity/image-url";
+import Visible from "./Visible"
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -18,12 +19,14 @@ const ptComponents = {
           return null
         }
         return (
-          <img
-            alt={value.alt || ' '}
-            loading="lazy"
-            //src={urlFor(value).width(320).height(240).fit('max').auto('format')}
-            src={urlFor(value).fit('max').auto('format')}
-          />
+            <Visible>
+                <img
+                    alt={value.alt || ' '}
+                    loading="lazy"
+                    // src={urlFor(value).width(320).height(240).fit('max').auto('format')}
+                    src={urlFor(value).fit('max').auto('format')}
+                />
+            </Visible>
         )
       }
     }
@@ -115,7 +118,10 @@ export default function OnePost() {
                         value={postData.body} 
                         components={ptComponents}
                     />
-                </div>
+
+                    {/* BACK TO HOME  */}
+                    <Link to={"/"}>Back to Home</Link>
+                </div>                
             </div>
         </div>
     );
